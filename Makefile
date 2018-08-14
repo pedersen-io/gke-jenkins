@@ -1,12 +1,22 @@
+build-jenkins:
+	docker build ./jenkins -t jenkins
+
+publish-jenkins:
+	docker tag build-golang us.gcr.io/derekpedersen-195304/jenkins:latest
+	gcloud docker -- push us.gcr.io/derekpedersen-195304/jenkins:latest
+
+build-golang:
+	docker build ./build-image/golang -t build-golang
+
 deploy: delete
-	kubectl create -f ./kubernetes/deployment.yaml
-	kubectl create -f ./kubernetes/service.yaml
-	kubectl create -f ./kubernetes/rbac.yaml
+	kubectl create -f ./deployment.yaml
+	#kubectl create -f ./service.yaml
+	#kubectl create -f ./rbac.yaml
 
 delete:
-	kubectl delete deployment nginx-proxy-deployment
-	kubectl delete -f ./kubernetes/service.yaml
-	kubectl delete -f ./kubernetes/rbac.yaml
+	kubectl delete deployment jenkins
+	#kubectl delete -f ./service.yaml
+	#kubectl delete -f ./rbac.yaml
 
 kubernetes: deploy
 

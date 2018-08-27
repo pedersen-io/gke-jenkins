@@ -1,7 +1,6 @@
-FROM jenkins/jenkins:2.67
+FROM jenkins/jenkins:lts
 
 USER root
-
 RUN apt-get -qq update \
    && apt-get -qq -y install \
    curl
@@ -11,3 +10,5 @@ RUN curl -sSL https://get.docker.com/ | sh
 RUN usermod -a -G staff,docker jenkins
 
 USER jenkins
+
+ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/jenkins.sh"]

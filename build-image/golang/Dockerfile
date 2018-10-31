@@ -28,6 +28,8 @@ ENV PATH=$GOROOT/bin:$PATH
 RUN echo $PATH
 
 RUN mkdir -p /home/jenkins/go/bin
+RUN mkdir -p /home/jenkins/go/src
+RUN chmod -R 777 /home/jenkins/go
 
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
@@ -35,9 +37,9 @@ USER jenkins
 
 ENV GOROOT=/usr/local/go 
 RUN echo $GOROOT
-ENV GOPATH=/home/jenkins/go:/root/workspace 
+ENV GOPATH=/home/jenkins/go:/root/workspace/go
 RUN echo $GOPATH
-ENV PATH=/home/jenkins/go/bin:/root/workspace/bin:$PATH
+ENV PATH=/home/jenkins/go/bin:/root/workspace/go/bin:$PATH
 RUN echo $GOPATH
 
 ENTRYPOINT ["jenkins-slave"]

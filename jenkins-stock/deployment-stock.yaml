@@ -34,10 +34,10 @@ spec:
           value: '-Xmx1400m'
         volumeMounts:
         - mountPath: /var/jenkins_home
-          name: jenkins-home
+          name: jenkins-home-dir
       volumes:
-      - name: jenkins-home
+      - name: jenkins-home-dir
         gcePersistentDisk:
-          pdName: jenkins-home
+          pdName: jenkins-home-dir
           fsType: ext4
           partition: 1

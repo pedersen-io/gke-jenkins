@@ -24,7 +24,7 @@ RUN wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz && \
 ENV GOROOT=/usr/local/go 
 ENV PATH=$GOROOT/bin:$PATH 
 
-USER jenkins
+#USER jenkins
 
 RUN mkdir -p /home/jenkins/go && \
     mkdir -p /home/jenkins/go/bin && \

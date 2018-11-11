@@ -2,42 +2,35 @@ FROM jenkins/jnlp-slave
 
 USER root
 
-RUN apt-get update
-RUN apt-get install -y software-properties-common
-
 RUN apt-get update -qq && \
-    apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common && \
-    curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
-    apt-key fingerprint 0EBFCD88 && \
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
-    apt-get update -qq && \
-    apt-get install -qqy docker-ce && \
-    usermod -aG docker jenkins
+    apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common build-essential
 
-RUN gpasswd -a jenkins docker
+# RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
+#     apt-key fingerprint 0EBFCD88 && \
+#     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
+#     apt-get update -qq && \
+#     apt-get install -qqy docker-ce && \
+#     usermod -aG docker jenkins
 
-RUN apt-get -y install build-essential
+# RUN gpasswd -a jenkins docker
 
-RUN wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
-RUN tar -xvf go1.10.1.linux-amd64.tar.gz
-RUN mv go /usr/local
+RUN wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz && \
+    tar -xvf go1.10.1.linux-amd64.tar.gz && \
+    mv go /usr/local
 
 ENV GOROOT=/usr/local/go 
-RUN echo $GOROOT
 ENV PATH=$GOROOT/bin:$PATH 
-RUN echo $PATH
-
-RUN mkdir -p /home/jenkins/go/bin
-
-RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
 USER jenkins
 
+RUN mkdir -p /home/jenkins/go && \
+    mkdir -p /home/jenkins/go/bin && \
+    mkdir -p /home/jenkins/go/src && \
+    mkdir -p /home/jenkins/go/pkg && \
+    curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
 ENV GOROOT=/usr/local/go 
-RUN echo $GOROOT
-ENV GOPATH=/home/jenkins/go:/root/workspace 
-RUN echo $GOPATH
-ENV PATH=/home/jenkins/go/bin:/root/workspace/bin:$PATH
-RUN echo $GOPATH
+ENV GOPATH=/home/jenkins/go:/root/workspace/go 
+ENV PATH=/home/jenkins/go/bin:/root/workspace/go/bin:$PATH
 
 ENTRYPOINT ["jenkins-slave"]

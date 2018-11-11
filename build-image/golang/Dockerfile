@@ -21,7 +21,9 @@ ENV PATH=$GOROOT/bin:$PATH
 RUN mkdir -p /home/jenkins/go/bin && \
     mkdir -p /home/jenkins/go/src && \
     mkdir -p /home/jenkins/go/pkg && \
-    curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+    curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh && \
+    go get github.com/golang/mock/gomock && \
+    go install github.com/golang/mock/mockgen
 
 ENV GOROOT=/usr/local/go 
 ENV GOPATH=/home/jenkins/go:/root/workspace/go 

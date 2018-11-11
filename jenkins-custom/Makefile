@@ -9,8 +9,4 @@ publish: build
 	gcloud docker -- push us.gcr.io/derekpedersen-195304/jenkins-custom:latest
 
 deploy: publish 
-	kubectl create -f ./deployment-custom.yaml
-
-publish-jenkins:
-	docker tag build-golang us.gcr.io/derekpedersen-195304/jenkins:latest
-	gcloud docker -- push us.gcr.io/derekpedersen-195304/jenkins:latest
+	kubectl apply -f ./deployment-custom.yaml

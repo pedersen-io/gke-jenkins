@@ -23,14 +23,14 @@ spec:
           requests:
             cpu: "10m"
             memory: "500Mi"
-        readinessProbe:
-          httpGet:
-            path: /login
-            port: 8080
-          periodSeconds: 10
-          timeoutSeconds: 5
-          successThreshold: 2
-          failureThreshold: 5
+        # readinessProbe:
+        #   httpGet:
+        #     path: /login
+        #     port: 8080
+        #   periodSeconds: 10
+        #   timeoutSeconds: 5
+        #   successThreshold: 2
+        #   failureThreshold: 5
         env:
         - name: JENKINS_OPTS
           valueFrom:

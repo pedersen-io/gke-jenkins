@@ -16,6 +16,13 @@ spec:
         ports:
         - containerPort: 8080
         - containerPort: 50000
+        resources:
+          limits:
+            cpu: "100m"
+            memory: "750Mi"
+          requests:
+            cpu: "10m"
+            memory: "500Mi"
         readinessProbe:
           httpGet:
             path: /login

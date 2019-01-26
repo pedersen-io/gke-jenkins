@@ -12,10 +12,17 @@ spec:
     spec:
       containers:
       - name: master
-        image: us.gcr.io/${GCLOUD_PROJECT_ID}/jenkins-custom:latest
+        image: us.gcr.io/%GCLOUD_PROJECT_ID%/jenkins-custom:latest
         ports:
         - containerPort: 8080
         - containerPort: 50000
+        resources:
+          limits:
+            cpu: "50m"
+            memory: "1000Mi"
+          requests:
+            cpu: "10m"
+            memory: "500Mi"
         readinessProbe:
           httpGet:
             path: /login

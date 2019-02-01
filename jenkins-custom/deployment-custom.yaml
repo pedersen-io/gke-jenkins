@@ -39,7 +39,6 @@ spec:
           initialDelaySeconds: 1200
           periodSeconds: 10
           timeoutSeconds: 5
-          successThreshold: 2
           failureThreshold: 5
         env:
         - name: JENKINS_OPTS

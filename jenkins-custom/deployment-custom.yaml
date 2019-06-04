@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: master
-        image: us.gcr.io/%GCLOUD_PROJECT_ID%/jenkins-custom:latest
+        image: us.gcr.io/%GCLOUD_PROJECT_ID%/jenkins-custom:%GIT_COMMIT_SHA%
         ports:
         - containerPort: 8080
         - containerPort: 50000

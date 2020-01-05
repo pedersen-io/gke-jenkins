@@ -1,11 +1,30 @@
-# gke-jenkins #
+# GKE Jenkins #
 
-This is my gke jenkins implementation
+This is my `gke jenkins` setup
 
-## Step by Step ##
+## helm charts ##
 
-https://cloud.google.com/solutions/jenkins-on-kubernetes-engine-tutorial
+Add the repo `helm repo add stable https://kubernetes-charts.storage.googleapis.com/`
 
-kubectl create secret generic jenkins --from-file=options
+Install the chart`helm install stable/jenkins --generate-name`
 
-https://cloud.google.com/solutions/jenkins-on-kubernetes-engine
+```yaml
+NAME: jenkins-1578171870
+LAST DEPLOYED: Sat Jan  4 13:04:32 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+1. Get your 'admin' user password by running:
+  printf $(kubectl get secret --namespace default jenkins-1578171870 -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+2. Get the Jenkins URL to visit by running these commands in the same shell:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=jenkins-1578171870" -o jsonpath="{.items[0].metadata.name}")
+  echo http://127.0.0.1:8080
+  kubectl --namespace default port-forward $POD_NAME 8080:8080
+
+3. Login with the password from step 1 and the username: admin
+
+
+For more information on running Jenkins on Kubernetes, visit:
+https://cloud.google.com/solutions/jenkins-on-container-engine
+```

@@ -10,6 +10,10 @@ RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add 
         apt-get update && \
         apt-get install -y kubectl
 
+RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 && \
+    chmod 700 get_helm.sh && \
+    ./get_helm.sh
+
 RUN wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz && \
     tar -xvf go1.10.1.linux-amd64.tar.gz && \
     mv go /usr/local
@@ -35,4 +39,4 @@ ENV GOROOT=/usr/local/go
 ENV GOPATH=/home/jenkins/go:/root/workspace/go 
 ENV PATH=/home/jenkins/go/bin:/root/workspace/go/bin:$PATH
 
-ENTRYPOINT ["jenkins-slave"
+ENTRYPOINT ["jenkins-slave"]

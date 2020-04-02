@@ -3,16 +3,7 @@ FROM jenkins/jnlp-slave
 USER root
 
 RUN apt-get update -qq && \
-        apt-get install -qqy && \
-        apt-transport-https && \
-        ca-certificates && \ 
-        curl  && \
-        gnupg2  && \
-        software-properties-common && \
-        build-essential && \
-        jq && \
-        libapparmor-dev && \
-        libseccomp-dev
+    apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common build-essential jq libapparmor-dev libseccomp-dev
 
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
         apt-key fingerprint 0EBFCD88 && \
@@ -21,6 +12,11 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
         apt-get install -qqy docker-ce && \
         usermod -aG docker jenkins
 RUN gpasswd -a jenkins docker
+
+RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-19.03.8.tgz && \
+    tar xzvf docker-19.03.8.tgz && \
+    cp docker/* /usr/bin/ && \
+    dockerd &
 
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
         echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list && \

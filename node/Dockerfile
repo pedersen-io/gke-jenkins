@@ -12,15 +12,23 @@ RUN apt-get update -qq && \
     apt-get install kubectl -y
 
 # node, angular-cli, vue-cli, npx
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs && \
     npm install -g @angular/cli && \
-    npm install -g @vue/cli && \
-    npm install -g npx
+    npm install -g @vue/cli 
 
 # chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
     echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
     apt-get update && apt-get -y install google-chrome-stable
+
+# docker
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
+        apt-key fingerprint 0EBFCD88 && \
+        add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
+        apt-get update -qq && \
+        apt-get install -qqy docker-ce && \
+        usermod -aG docker jenkins
+RUN gpasswd -a jenkins docker
 
 ENTRYPOINT ["jenkins-slave"]

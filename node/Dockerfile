@@ -11,10 +11,12 @@ RUN apt-get update -qq && \
     apt-get install google-cloud-sdk -y && \
     apt-get install kubectl -y
 
-# node
+# node, angular-cli, vue-cli, npx
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && \
     apt-get install -y nodejs && \
-    npm install -g @angular/cli
+    npm install -g @angular/cli && \
+    npm install -g @vue/cli && \
+    npm install -g npx
 
 # chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \

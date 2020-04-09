@@ -1,12 +1,21 @@
 pipeline {
     agent {
-        label 'build-golang-stable'
+        label 'build-base-stable'
     }
     stages {
         stage('Checkout') {
             steps{
                 dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
                     checkout scm
+                }
+            }
+        }
+        stage('jenkins-base') {
+            steps {
+                withCredentials([[$class: 'StringBinding', credentialsId: 'GCLOUD_PROJECT_ID', variable: 'GCLOUD_PROJECT_ID']]) {
+                    dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
+                        sh 'make build && make publish'
+                    }
                 }
             }
         }

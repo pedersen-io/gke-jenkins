@@ -85,6 +85,7 @@ jenkins:
       - containers:
         - alwaysPullImage: true
           args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
           envVars:
           - containerEnvVar:
               key: "JENKINS_URL"
@@ -122,6 +123,7 @@ jenkins:
       - containers:
         - alwaysPullImage: true
           args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
           image: "us.gcr.io/sleipnir/build-node:latest"
           livenessProbe:
             failureThreshold: 0
@@ -150,6 +152,7 @@ jenkins:
       - containers:
         - alwaysPullImage: true
           args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
           image: "us.gcr.io/sleipnir/build-jenkins-base:latest"
           livenessProbe:
             failureThreshold: 0
@@ -167,6 +170,35 @@ jenkins:
         instanceCapStr: "5"
         label: "build-base-stable"
         name: "jenkins"
+        podRetention: "onFailure"
+        slaveConnectTimeout: 600
+        slaveConnectTimeoutStr: "600"
+        volumes:
+        - hostPathVolume:
+            hostPath: "/var/run/docker.sock"
+            mountPath: "/var/run/docker.sock"
+        yamlMergeStrategy: "override"
+      - containers:
+        - alwaysPullImage: true
+          args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
+          image: "us.gcr.io/sleipnir/build-dotnetcore:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          ttyEnabled: true
+          workingDir: "/home/jenkins/agent"
+        hostNetwork: false
+        idleMinutes: 15
+        idleMinutesStr: "15"
+        instanceCap: 5
+        instanceCapStr: "5"
+        label: "build-dotnetcore-stable"
+        name: "dotnet-core"
         podRetention: "onFailure"
         slaveConnectTimeout: 600
         slaveConnectTimeoutStr: "600"

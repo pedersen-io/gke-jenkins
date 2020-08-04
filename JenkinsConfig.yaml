@@ -49,12 +49,15 @@ jenkins:
       - "Job/Delete:derekpedersen"
       - "Job/Discover:derekpedersen"
       - "Job/Move:derekpedersen"
+      - "Job/Read:anonymous"
+      - "Job/Read:authenticated"
       - "Job/Read:derekpedersen"
       - "Job/Workspace:derekpedersen"
       - "Lockable Resources/Reserve:derekpedersen"
       - "Lockable Resources/Unlock:derekpedersen"
       - "Lockable Resources/View:derekpedersen"
       - "Overall/Administer:derekpedersen"
+      - "Overall/Read:authenticated"
       - "Overall/Read:derekpedersen"
       - "Run/Delete:derekpedersen"
       - "Run/Replay:derekpedersen"
@@ -63,6 +66,8 @@ jenkins:
       - "View/Configure:derekpedersen"
       - "View/Create:derekpedersen"
       - "View/Delete:derekpedersen"
+      - "View/Read:anonymous"
+      - "View/Read:authenticated"
       - "View/Read:derekpedersen"
   clouds:
   - kubernetes:
@@ -177,8 +182,9 @@ jenkins:
   disabledAdministrativeMonitors:
   - "jenkins.security.QueueItemAuthenticatorMonitor"
   labelAtoms:
+  - name: "build-base-stable"
   - name: "build-golang-stable"
-  - name: "golang-xg9w1"
+  - name: "build-node-stable"
   - name: "master"
   markupFormatter: "plainText"
   mode: NORMAL
@@ -219,6 +225,8 @@ unclassified:
   buildDiscarders:
     configuredBuildDiscarders:
     - "jobBuildDiscarder"
+  casCGlobalConfig:
+    configurationPath: "https://raw.githubusercontent.com/derekpedersen/gke-jenkins/master/JenkinsConfig.yaml"
   defaultFolderConfiguration:
     healthMetrics:
     - worstChildHealthMetric:

@@ -23,8 +23,7 @@ pipeline {
             steps {
                 withCredentials([[$class: 'StringBinding', credentialsId: 'GCLOUD_PROJECT_ID', variable: 'GCLOUD_PROJECT_ID']]) {
                     dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins/golang') {
-                        sh 'make build'
-                        sh 'make publish'
+                        sh 'make build && make publish'
                     }
                 }
             }

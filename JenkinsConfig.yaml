@@ -1,0 +1,289 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          description: "GitHub PAT for Derek Pedersen"
+          id: "github_derekpedersen"
+          password: "{AQAAABAAAAAwPgQT/CJIVQn0P3u/DrVqyLQNqPvYZ1ccEMymDK4qvopFjRGZpVnpkA56pODOHypo9qkfs69OJrIIGespnD6z1A==}"
+          scope: GLOBAL
+          username: "derekpedersen"
+      - string:
+          description: "GCloud Project ID"
+          id: "GCLOUD_PROJECT_ID"
+          scope: GLOBAL
+          secret: "{AQAAABAAAAAQ0uH4CP1bxvi/j9SDn+NImKCvx4vaa3WEfRYIj9yobuc=}"
+      - string:
+          description: "Imgur API Client Secret"
+          id: "IMGUR_API_KEY"
+          scope: GLOBAL
+          secret: "{AQAAABAAAAAg2gPtSynRQBEOH2Hm1NWw9j2ZfzW1H094XLCD3t40uRx3fcp51bF6aHls1dTvtOj9}"
+      - file:
+          description: "K8s Service Account JSON"
+          fileName: "sleipnir-1b67b2b11be6.json"
+          id: "k8s_json"
+          scope: GLOBAL
+          secretBytes: "{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}"
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+      - "Agent/Build:derekpedersen"
+      - "Agent/Configure:derekpedersen"
+      - "Agent/Connect:derekpedersen"
+      - "Agent/Create:derekpedersen"
+      - "Agent/Delete:derekpedersen"
+      - "Agent/Disconnect:derekpedersen"
+      - "Credentials/Create:derekpedersen"
+      - "Credentials/Delete:derekpedersen"
+      - "Credentials/ManageDomains:derekpedersen"
+      - "Credentials/Update:derekpedersen"
+      - "Credentials/View:derekpedersen"
+      - "Job/Build:derekpedersen"
+      - "Job/Cancel:derekpedersen"
+      - "Job/Configure:derekpedersen"
+      - "Job/Create:derekpedersen"
+      - "Job/Delete:derekpedersen"
+      - "Job/Discover:derekpedersen"
+      - "Job/Move:derekpedersen"
+      - "Job/Read:anonymous"
+      - "Job/Read:authenticated"
+      - "Job/Read:derekpedersen"
+      - "Job/Workspace:derekpedersen"
+      - "Lockable Resources/Reserve:derekpedersen"
+      - "Lockable Resources/Unlock:derekpedersen"
+      - "Lockable Resources/View:derekpedersen"
+      - "Overall/Administer:derekpedersen"
+      - "Overall/Read:authenticated"
+      - "Overall/Read:derekpedersen"
+      - "Run/Delete:derekpedersen"
+      - "Run/Replay:derekpedersen"
+      - "Run/Update:derekpedersen"
+      - "SCM/Tag:derekpedersen"
+      - "View/Configure:derekpedersen"
+      - "View/Create:derekpedersen"
+      - "View/Delete:derekpedersen"
+      - "View/Read:anonymous"
+      - "View/Read:authenticated"
+      - "View/Read:derekpedersen"
+  clouds:
+  - kubernetes:
+      containerCap: 10
+      containerCapStr: "10"
+      credentialsId: "k8s_json"
+      jenkinsTunnel: "jenkins-1594685437-agent:50000"
+      jenkinsUrl: "http://jenkins-1594685437:8080"
+      maxRequestsPerHost: 32
+      maxRequestsPerHostStr: "32"
+      name: "kubernetes"
+      namespace: "default"
+      serverUrl: "https://kubernetes.default"
+      templates:
+      - containers:
+        - alwaysPullImage: true
+          args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
+          envVars:
+          - containerEnvVar:
+              key: "JENKINS_URL"
+              value: "http://jenkins-1594685437.default.svc.cluster.local:8080"
+          image: "us.gcr.io/sleipnir/build-golang:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: ".5"
+          resourceLimitMemory: "512Mi"
+          resourceRequestCpu: ".1"
+          resourceRequestMemory: "512Mi"
+          workingDir: "/home/jenkins"
+        hostNetwork: false
+        idleMinutes: 15
+        idleMinutesStr: "15"
+        instanceCap: 5
+        instanceCapStr: "5"
+        label: "build-golang-stable"
+        name: "golang"
+        nodeUsageMode: "NORMAL"
+        podRetention: "onFailure"
+        serviceAccount: "default"
+        slaveConnectTimeout: 600
+        slaveConnectTimeoutStr: "600"
+        volumes:
+        - hostPathVolume:
+            hostPath: "/var/run/docker.sock"
+            mountPath: "/var/run/docker.sock"
+        yamlMergeStrategy: "override"
+      - containers:
+        - alwaysPullImage: true
+          args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
+          image: "us.gcr.io/sleipnir/build-node:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          ttyEnabled: true
+          workingDir: "/home/jenkins"
+        hostNetwork: false
+        idleMinutes: 15
+        idleMinutesStr: "15"
+        instanceCap: 5
+        instanceCapStr: "5"
+        label: "build-node-stable"
+        name: "node"
+        podRetention: "onFailure"
+        slaveConnectTimeout: 600
+        slaveConnectTimeoutStr: "600"
+        volumes:
+        - hostPathVolume:
+            hostPath: "/var/run/docker.sock"
+            mountPath: "/var/run/docker.sock"
+        yamlMergeStrategy: "override"
+      - containers:
+        - alwaysPullImage: true
+          args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
+          image: "us.gcr.io/sleipnir/build-jenkins-base:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          ttyEnabled: true
+          workingDir: "/home/jenkins/agent"
+        hostNetwork: false
+        idleMinutes: 15
+        idleMinutesStr: "15"
+        instanceCap: 5
+        instanceCapStr: "5"
+        label: "build-base-stable"
+        name: "jenkins"
+        podRetention: "onFailure"
+        slaveConnectTimeout: 600
+        slaveConnectTimeoutStr: "600"
+        volumes:
+        - hostPathVolume:
+            hostPath: "/var/run/docker.sock"
+            mountPath: "/var/run/docker.sock"
+        yamlMergeStrategy: "override"
+      - containers:
+        - alwaysPullImage: true
+          args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
+          image: "us.gcr.io/sleipnir/build-dotnetcore:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          ttyEnabled: true
+          workingDir: "/home/jenkins/agent"
+        hostNetwork: false
+        idleMinutes: 15
+        idleMinutesStr: "15"
+        instanceCap: 5
+        instanceCapStr: "5"
+        label: "build-dotnetcore-stable"
+        name: "dotnet-core"
+        podRetention: "onFailure"
+        slaveConnectTimeout: 600
+        slaveConnectTimeoutStr: "600"
+        volumes:
+        - hostPathVolume:
+            hostPath: "/var/run/docker.sock"
+            mountPath: "/var/run/docker.sock"
+        yamlMergeStrategy: "override"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+  disableRememberMe: false
+  disabledAdministrativeMonitors:
+  - "jenkins.security.QueueItemAuthenticatorMonitor"
+  labelAtoms:
+  - name: "build-base-stable"
+  - name: "build-golang-stable"
+  - name: "build-node-stable"
+  - name: "master"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 0
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    github:
+      clientID: "725008ee2da8b3bd533e"
+      clientSecret: "{AQAAABAAAAAwBXHX7uOUHMsTcCAECtvlRU9fvvWe60BGjYVs1xI6/QZERzHm52/0/ufdEdJW1ZHaXhjLqmsUc2RvDdtUSgWP8A==}"
+      githubApiUri: "https://api.github.com"
+      githubWebUri: "https://github.com"
+      oauthScopes: "read:org,user:email,repo"
+  slaveAgentPort: 50000
+  updateCenter:
+    sites:
+    - id: "default"
+      url: "https://updates.jenkins.io/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  sSHD:
+    port: -1
+unclassified:
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  casCGlobalConfig:
+    configurationPath: "https://raw.githubusercontent.com/derekpedersen/gke-jenkins/master/JenkinsConfig.yaml"
+  defaultFolderConfiguration:
+    healthMetrics:
+    - worstChildHealthMetric:
+        recursive: true
+  gitHubConfiguration:
+    apiRateLimitChecker: ThrottleForNormalize
+  gitHubPluginConfig:
+    hookUrl: "https://jenkins.pedersen.io/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: false
+    globalConfigEmail: "jenkins@pedersen.io"
+    globalConfigName: "jenkins"
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+  location:
+    adminAddress: "jenkins@pedersen.io"
+    url: "https://jenkins.pedersen.io/"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+    useTls: false
+  pollSCM:
+    pollingThreadCount: 10
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"

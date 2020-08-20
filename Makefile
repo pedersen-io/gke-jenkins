@@ -4,5 +4,5 @@ build:
 	docker build ./ -t build-jenkins-base
 
 publish:
-	docker tag build-golang us.gcr.io/${GCLOUD_PROJECT_ID}/build-jenkins-base:latest
+	docker tag build-jenkins-base us.gcr.io/${GCLOUD_PROJECT_ID}/build-jenkins-base:latest
 	gcloud docker -- push us.gcr.io/${GCLOUD_PROJECT_ID}/build-jenkins-base:latest

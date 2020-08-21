@@ -164,12 +164,6 @@ jenkins:
     enabled: true
   scmCheckoutRetryCount: 0
   securityRealm:
-    github:
-      clientID: "725008ee2da8b3bd533e"
-      clientSecret: "{AQAAABAAAAAwBXHX7uOUHMsTcCAECtvlRU9fvvWe60BGjYVs1xI6/QZERzHm52/0/ufdEdJW1ZHaXhjLqmsUc2RvDdtUSgWP8A==}"
-      githubApiUri: "https://api.github.com"
-      githubWebUri: "https://github.com"
-      oauthScopes: "read:org,user:email,repo"
   slaveAgentPort: 50000
   updateCenter:
     sites:

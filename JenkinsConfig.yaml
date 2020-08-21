@@ -5,7 +5,6 @@ jenkins:
   agentProtocols:
   - "JNLP4-connect"
   - "Ping"
-  authorizationStrategy:
   clouds:
   - kubernetes:
       containerCap: 10
@@ -147,8 +146,6 @@ jenkins:
     standard:
       excludeClientIPFromCrumb: true
   disableRememberMe: false
-  disabledAdministrativeMonitors:
-  - "jenkins.security.QueueItemAuthenticatorMonitor"
   labelAtoms:
   - name: "master"
   markupFormatter: "plainText"
@@ -163,7 +160,6 @@ jenkins:
   remotingSecurity:
     enabled: true
   scmCheckoutRetryCount: 0
-  securityRealm:
   slaveAgentPort: 50000
   updateCenter:
     sites:

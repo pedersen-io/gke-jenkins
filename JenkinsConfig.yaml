@@ -50,7 +50,6 @@ jenkins:
   - kubernetes:
       containerCap: 10
       containerCapStr: "10"
-      credentialsId: "k8s_json"
       jenkinsTunnel: "jenkins-1597965510-agent:50000"
       jenkinsUrl: "http://jenkins-1597965510:8080"
       maxRequestsPerHost: 32
@@ -241,7 +240,6 @@ unclassified:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
     configs:
-    - credentialsId: "derekpedersen_github_pat"
       manageHooks: false
       name: "github.com"
     hookUrl: "https://jenkins.pedersen.io/github-webhook/"

@@ -1,0 +1,133 @@
+credentials:
+    system:
+      domainCredentials:
+      - credentials:
+        - string:
+            description: "derekpedersen github personal access token"
+            id: "github_pat"
+            scope: GLOBAL
+            secret: "{AQAAABAAAAAwK1ZygrNWS2eghyeo/50f7cuQigWIVQnlntbSdc9i8WUEpDBn4C6bWRUfb7P6FlwERk0DG57KO+IxQJotN/N1QQ==}"
+        - usernamePassword:
+            description: "derekpedersen username/password with pat"
+            id: "derekpedersen_github"
+            password: "{AQAAABAAAAAw+X9GIZDhhHxAdC1TS/xD/ygT2Shy6++wIEFHVAmuTDeqz69Pm6N90NgoBLLmhCJidcG3XDqDREl9C74Ypzs2jw==}"
+            scope: GLOBAL
+            username: "derekpedersen"
+  jenkins:
+    agentProtocols:
+    - "JNLP4-connect"
+    - "Ping"
+    authorizationStrategy:
+      loggedInUsersCanDoAnything:
+        allowAnonymousRead: false
+    clouds:
+    - kubernetes:
+        containerCap: 10
+        containerCapStr: "10"
+        maxRequestsPerHost: 32
+        maxRequestsPerHostStr: "32"
+        name: "kubernetes"
+        namespace: "default"
+        podRetention: "onFailure"
+        templates:
+        - containers:
+          - args: "^^${computer.jnlpmac} ^^${computer.name}"
+            command: "/bin/sh -c"
+            image: "us.gcr.io/sleipnir/build-golang:latest\""
+            livenessProbe:
+              failureThreshold: 0
+              initialDelaySeconds: 0
+              periodSeconds: 0
+              successThreshold: 0
+              timeoutSeconds: 0
+            name: "golang"
+            ttyEnabled: true
+            workingDir: "/home/jenkins/agent"
+          hostNetwork: false
+          idleMinutes: 15
+          idleMinutesStr: "15"
+          instanceCap: 5
+          instanceCapStr: "5"
+          label: "build-golang"
+          name: "golang"
+          namespace: "default"
+          nodeUsageMode: "NORMAL"
+          volumes:
+          - hostPathVolume:
+              hostPath: "/var/run/docker.sock"
+              mountPath: "/var/run/docker.sock"
+          yamlMergeStrategy: "override"
+    crumbIssuer:
+      standard:
+        excludeClientIPFromCrumb: true
+    disableRememberMe: false
+    labelAtoms:
+    - name: "build-golang"
+    - name: "master"
+    markupFormatter: "plainText"
+    mode: NORMAL
+    myViewsTabBar: "standard"
+    noUsageStatistics: true
+    numExecutors: 0
+    primaryView:
+      all:
+        name: "all"
+    projectNamingStrategy: "standard"
+    quietPeriod: 5
+    remotingSecurity:
+      enabled: true
+    scmCheckoutRetryCount: 0
+    securityRealm: "legacy"
+    slaveAgentPort: 50000
+    updateCenter:
+      sites:
+      - id: "default"
+        url: "https://updates.jenkins.io/update-center.json"
+    views:
+    - all:
+        name: "all"
+    viewsTabBar: "standard"
+  security:
+    apiToken:
+      creationOfLegacyTokenEnabled: false
+      tokenGenerationOnCreationEnabled: false
+      usageStatisticsEnabled: true
+    sSHD:
+      port: -1
+  unclassified:
+    buildDiscarders:
+      configuredBuildDiscarders:
+      - "jobBuildDiscarder"
+    defaultFolderConfiguration:
+      healthMetrics:
+      - worstChildHealthMetric:
+          recursive: true
+    gitHubConfiguration:
+      apiRateLimitChecker: ThrottleForNormalize
+    gitHubPluginConfig:
+      configs:
+      - credentialsId: "github_pat"
+        manageHooks: false
+        name: "GitHub"
+      hookUrl: "https://jenkins.pedersen.io/github-webhook/"
+    gitSCM:
+      createAccountBasedOnEmail: false
+      globalConfigEmail: "jenkins@pedersen.io"
+      globalConfigName: "jenkins"
+      showEntireCommitSummaryInChanges: false
+      useExistingAccountWithSameEmail: false
+    location:
+      adminAddress: "jenkins@pedersen.io"
+      url: "https://jenkins.pedersen.io/"
+    mailer:
+      charset: "UTF-8"
+      useSsl: false
+      useTls: false
+    pollSCM:
+      pollingThreadCount: 10
+  tool:
+    git:
+      installations:
+      - home: "git"
+        name: "Default"
+  

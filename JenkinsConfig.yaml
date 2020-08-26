@@ -154,42 +154,6 @@ jenkins:
             hostPath: "/var/run/docker.sock"
             mountPath: "/var/run/docker.sock"
         yamlMergeStrategy: "override"
-  
-      containerCap: 10
-      containerCapStr: "10"
-      maxRequestsPerHost: 32
-      maxRequestsPerHostStr: "32"
-      name: "kubernetes"
-      namespace: "default"
-      podRetention: "onFailure"
-      templates:
-      - containers:
-        - args: "^^${computer.jnlpmac} ^^${computer.name}"
-          command: "/bin/sh -c"
-          image: "us.gcr.io/sleipnir/build-golang:latest\""
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: "golang"
-          ttyEnabled: true
-          workingDir: "/home/jenkins/agent"
-        hostNetwork: false
-        idleMinutes: 15
-        idleMinutesStr: "15"
-        instanceCap: 5
-        instanceCapStr: "5"
-        label: "build-golang"
-        name: "golang"
-        namespace: "default"
-        nodeUsageMode: "NORMAL"
-        volumes:
-        - hostPathVolume:
-            hostPath: "/var/run/docker.sock"
-            mountPath: "/var/run/docker.sock"
-        yamlMergeStrategy: "override"
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: true

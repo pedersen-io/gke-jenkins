@@ -20,8 +20,17 @@ jenkins:
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
-  clouds:
-    - kubernetes:
+  clouds:  
+  - kubernetes:
+    containerCap: 10
+    containerCapStr: "10"
+    maxRequestsPerHost: 32
+    maxRequestsPerHostStr: "32"
+    name: "kubernetes"
+    namespace: "default"
+    podRetention: "onFailure"
+    templates:
+    - containers:
       containerCap: 10
       containerCapStr: "10"
       maxRequestsPerHost: 32

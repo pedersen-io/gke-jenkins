@@ -18,21 +18,52 @@ jenkins:
   - "JNLP4-connect"
   - "Ping"
   authorizationStrategy:
-    loggedInUsersCanDoAnything:
-      allowAnonymousRead: false
-  clouds:  
+    globalMatrix:
+      permissions:
+      - "Agent/Build:derekpedersen"
+      - "Agent/Configure:derekpedersen"
+      - "Agent/Connect:derekpedersen"
+      - "Agent/Create:derekpedersen"
+      - "Agent/Delete:derekpedersen"
+      - "Agent/Disconnect:derekpedersen"
+      - "Credentials/Create:derekpedersen"
+      - "Credentials/Delete:derekpedersen"
+      - "Credentials/ManageDomains:derekpedersen"
+      - "Credentials/Update:derekpedersen"
+      - "Credentials/View:derekpedersen"
+      - "Job/Build:derekpedersen"
+      - "Job/Cancel:derekpedersen"
+      - "Job/Configure:derekpedersen"
+      - "Job/Create:derekpedersen"
+      - "Job/Delete:derekpedersen"
+      - "Job/Discover:derekpedersen"
+      - "Job/Move:derekpedersen"
+      - "Job/Read:anonymous"
+      - "Job/Read:authenticated"
+      - "Job/Read:derekpedersen"
+      - "Job/Workspace:derekpedersen"
+      - "Lockable Resources/Reserve:derekpedersen"
+      - "Lockable Resources/Unlock:derekpedersen"
+      - "Lockable Resources/View:derekpedersen"
+      - "Overall/Administer:derekpedersen"
+      - "Overall/Read:authenticated"
+      - "Overall/Read:derekpedersen"
+      - "Run/Delete:derekpedersen"
+      - "Run/Replay:derekpedersen"
+      - "Run/Update:derekpedersen"
+      - "SCM/Tag:derekpedersen"
+      - "View/Configure:derekpedersen"
+      - "View/Create:derekpedersen"
+      - "View/Delete:derekpedersen"
+      - "View/Read:anonymous"
+      - "View/Read:authenticated"
+      - "View/Read:derekpedersen"
+  clouds:
   - kubernetes:
-    containerCap: 10
-    containerCapStr: "10"
-    maxRequestsPerHost: 32
-    maxRequestsPerHostStr: "32"
-    name: "kubernetes"
-    namespace: "default"
-    podRetention: "onFailure"
-    templates:
-    - containers:
       containerCap: 10
       containerCapStr: "10"
+      jenkinsTunnel: "jenkins-1597965510-agent:50000"
+      jenkinsUrl: "http://jenkins-1597965510:8080"
       maxRequestsPerHost: 32
       maxRequestsPerHostStr: "32"
       name: "kubernetes"
@@ -164,13 +195,13 @@ jenkins:
     standard:
       excludeClientIPFromCrumb: true
   disableRememberMe: false
+  disabledAdministrativeMonitors:
+  - "jenkins.security.QueueItemAuthenticatorMonitor"
   labelAtoms:
-  - name: "build-golang"
   - name: "master"
   markupFormatter: "plainText"
   mode: NORMAL
   myViewsTabBar: "standard"
-  noUsageStatistics: true
   numExecutors: 0
   primaryView:
     all:
@@ -180,7 +211,13 @@ jenkins:
   remotingSecurity:
     enabled: true
   scmCheckoutRetryCount: 0
-  securityRealm: "legacy"
+  securityRealm:
+    github:
+      clientID: "725008ee2da8b3bd533e"
+      clientSecret: "{AQAAABAAAAAwJILr6LHE2FQ9Y42cxblxutBGSnJ0N8bsv5d17xg7kPuK3aRx358BPYT2TQLtN1BLgdoEE5JTjaciqYCUX/Rwqw==}"
+      githubApiUri: "https://api.github.com"
+      githubWebUri: "https://github.com"
+      oauthScopes: "read:org,user:email,repo"
   slaveAgentPort: 50000
   updateCenter:
     sites:
@@ -201,6 +238,8 @@ unclassified:
   buildDiscarders:
     configuredBuildDiscarders:
     - "jobBuildDiscarder"
+  casCGlobalConfig:
+    configurationPath: "https://raw.githubusercontent.com/derekpedersen/gke-jenkins/master/JenkinsConfig.yaml"
   defaultFolderConfiguration:
     healthMetrics:
     - worstChildHealthMetric:
@@ -209,9 +248,9 @@ unclassified:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
     configs:
-    - credentialsId: "github_pat"
+    - credentialsId: "derekpedersen_github_pat"
       manageHooks: false
-      name: "GitHub"
+      name: "github.com"
     hookUrl: "https://jenkins.pedersen.io/github-webhook/"
   gitSCM:
     createAccountBasedOnEmail: false

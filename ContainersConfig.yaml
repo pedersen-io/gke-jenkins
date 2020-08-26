@@ -1,17 +1,4 @@
-
-  - kubernetes:
-    containerCap: 10
-    containerCapStr: "10"
-    credentialsId: "k8s_json"
-    jenkinsTunnel: 
-    jenkinsUrl: 
-    maxRequestsPerHost: 32
-    maxRequestsPerHostStr: "32"
-    name: "kubernetes"
-    namespace: "default"
-    serverUrl: "https://kubernetes.default"
-    templates:
-    - containers:
+s    - containers:
       - alwaysPullImage: true
         args: "^${computer.jnlpmac} ^${computer.name}"
         command: "/bin/sh -c"

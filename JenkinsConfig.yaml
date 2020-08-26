@@ -24,9 +24,6 @@ jenkins:
     - kubernetes:
       containerCap: 10
       containerCapStr: "10"
-      credentialsId: "k8s_json"
-      jenkinsTunnel: 
-      jenkinsUrl: 
       maxRequestsPerHost: 32
       maxRequestsPerHostStr: "32"
       name: "kubernetes"

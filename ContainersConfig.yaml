@@ -1,121 +1,90 @@
-    - containers:
-      - alwaysPullImage: true
-        args: "^${computer.jnlpmac} ^${computer.name}"
-        command: ""
-        image: "us.gcr.io/sleipnir/build-golang:latest"
-        livenessProbe:
-          failureThreshold: 0
-          initialDelaySeconds: 0
-          periodSeconds: 0
-          successThreshold: 0
-          timeoutSeconds: 0
-        name: "jnlp"
-        resourceLimitCpu: ".5"
-        resourceLimitMemory: "512Mi"
-        resourceRequestCpu: ".1"
-        resourceRequestMemory: "512Mi"
-        workingDir: "/home/jenkins"
-      hostNetwork: false
-      idleMinutes: 15
-      idleMinutesStr: "15"
-      instanceCap: 5
-      instanceCapStr: "5"
-      label: "build-golang-stable"
-      name: "golang"
-      nodeUsageMode: "NORMAL"
-      podRetention: "onFailure"
-      serviceAccount: "default"
-      slaveConnectTimeout: 600
-      slaveConnectTimeoutStr: "600"
-      volumes:
-      - hostPathVolume:
-          hostPath: "/var/run/docker.sock"
-          mountPath: "/var/run/docker.sock"
-      yamlMergeStrategy: "override"
-    - containers:
-      - alwaysPullImage: true
-        args: "^${computer.jnlpmac} ^${computer.name}"
-        command: ""
-        image: "us.gcr.io/sleipnir/build-node:latest"
-        livenessProbe:
-          failureThreshold: 0
-          initialDelaySeconds: 0
-          periodSeconds: 0
-          successThreshold: 0
-          timeoutSeconds: 0
-        name: "jnlp"
-        ttyEnabled: true
-        workingDir: "/home/jenkins"
-      hostNetwork: false
-      idleMinutes: 15
-      idleMinutesStr: "15"
-      instanceCap: 5
-      instanceCapStr: "5"
-      label: "build-node-stable"
-      name: "node"
-      podRetention: "onFailure"
-      slaveConnectTimeout: 600
-      slaveConnectTimeoutStr: "600"
-      volumes:
-      - hostPathVolume:
-          hostPath: "/var/run/docker.sock"
-          mountPath: "/var/run/docker.sock"
-      yamlMergeStrategy: "override"
-    - containers:
-      - alwaysPullImage: true
-        args: "^${computer.jnlpmac} ^${computer.name}"
-        command: ""
-        image: "us.gcr.io/sleipnir/build-jenkins-base:latest"
-        livenessProbe:
-          failureThreshold: 0
-          initialDelaySeconds: 0
-          periodSeconds: 0
-          successThreshold: 0
-          timeoutSeconds: 0
-        name: "jnlp"
-        ttyEnabled: true
-        workingDir: "/home/jenkins/agent"
-      hostNetwork: false
-      idleMinutes: 15
-      idleMinutesStr: "15"
-      instanceCap: 5
-      instanceCapStr: "5"
-      label: "build-base-stable"
-      name: "jenkins"
-      podRetention: "onFailure"
-      slaveConnectTimeout: 600
-      slaveConnectTimeoutStr: "600"
-      volumes:
-      - hostPathVolume:
-          hostPath: "/var/run/docker.sock"
-          mountPath: "/var/run/docker.sock"
-      yamlMergeStrategy: "override"
-    - containers:
-      - alwaysPullImage: true
-        args: "^${computer.jnlpmac} ^${computer.name}"
-        command: ""
-        image: "us.gcr.io/sleipnir/build-dotnetcore:latest"
-        livenessProbe:
-          failureThreshold: 0
-          initialDelaySeconds: 0
-          periodSeconds: 0
-          successThreshold: 0
-          timeoutSeconds: 0
-        name: "jnlp"
-        ttyEnabled: true
-        workingDir: "/home/jenkins/agent"
-      hostNetwork: false
-      idleMinutes: 15
-      idleMinutesStr: "15"
-      instanceCap: 5
-      instanceCapStr: "5"
-      label: "build-dotnetcore-stable"
-      name: "dotnet-core"
-      podRetention: "onFailure"
-      slaveConnectTimeout: 600
-      slaveConnectTimeoutStr: "600"
-      volumes:
-      - hostPathVolume:
-          hostPath: "/var/run/docker.sock"
-          mountPath: "/var/run/docker.sock"
-      yamlMergeStrategy: "override"
+- containers:
+  - alwaysPullImage: true
+    args: "^${computer.jnlpmac} ^${computer.name}"
+    image: "us.gcr.io/sleipnir/build-golang:latest"
+    livenessProbe:
+      failureThreshold: 0
+      initialDelaySeconds: 0
+      periodSeconds: 0
+      successThreshold: 0
+      timeoutSeconds: 0
+    name: "jnlp"
+    resourceLimitCpu: ".5"
+    resourceLimitMemory: "512Mi"
+    resourceRequestCpu: ".1"
+    resourceRequestMemory: "512Mi"
+    workingDir: "/home/jenkins"
+  hostNetwork: false
+  idleMinutes: 15
+  idleMinutesStr: "15"
+  instanceCap: 5
+  instanceCapStr: "5"
+  label: "build-golang-stable"
+  name: "golang"
+  nodeUsageMode: "NORMAL"
+  podRetention: "onFailure"
+  serviceAccount: "default"
+  slaveConnectTimeout: 600
+  slaveConnectTimeoutStr: "600"
+  volumes:
+  - hostPathVolume:
+      hostPath: "/var/run/docker.sock"
+      mountPath: "/var/run/docker.sock"
+  yamlMergeStrategy: "override"
+- containers:
+  - alwaysPullImage: true
+    args: "^${computer.jnlpmac} ^${computer.name}"
+    image: "us.gcr.io/sleipnir/build-node:latest"
+    livenessProbe:
+      failureThreshold: 0
+      initialDelaySeconds: 0
+      periodSeconds: 0
+      successThreshold: 0
+      timeoutSeconds: 0
+    name: "jnlp"
+    ttyEnabled: true
+    workingDir: "/home/jenkins"
+  hostNetwork: false
+  idleMinutes: 15
+  idleMinutesStr: "15"
+  instanceCap: 5
+  instanceCapStr: "5"
+  label: "build-node-stable"
+  name: "node"
+  podRetention: "onFailure"
+  slaveConnectTimeout: 600
+  slaveConnectTimeoutStr: "600"
+  volumes:
+  - hostPathVolume:
+      hostPath: "/var/run/docker.sock"
+      mountPath: "/var/run/docker.sock"
+  yamlMergeStrategy: "override"
+- containers:
+  - alwaysPullImage: true
+    args: "^${computer.jnlpmac} ^${computer.name}"
+    image: "us.gcr.io/sleipnir/build-jenkins-base:latest"
+    livenessProbe:
+      failureThreshold: 0
+      initialDelaySeconds: 0
+      periodSeconds: 0
+      successThreshold: 0
+      timeoutSeconds: 0
+    name: "jnlp"
+    ttyEnabled: true
+    workingDir: "/home/jenkins/agent"
+  hostNetwork: false
+  idleMinutes: 15
+  idleMinutesStr: "15"
+  instanceCap: 5
+  instanceCapStr: "5"
+  label: "build-base-stable"
+  name: "jenkins"
+  podRetention: "onFailure"
+  slaveConnectTimeout: 600
+  slaveConnectTimeoutStr: "600"
+  volumes:
+  - hostPathVolume:
+      hostPath: "/var/run/docker.sock"
+      mountPath: "/var/run/docker.sock"
+  yamlMergeStrategy: "override"
+- containers:

@@ -1,4 +1,4 @@
-s    - containers:
+    - containers:
       - alwaysPullImage: true
         args: "^${computer.jnlpmac} ^${computer.name}"
         command: "/bin/sh -c"

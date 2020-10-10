@@ -14,7 +14,8 @@ pipeline {
             steps {
                 dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
                     sh 'make build'
-                    docker.withRegistry('https://registry.example.com', 'credentials-id') {
+                }
+                docker.withRegistry('https://registry.example.com', 'credentials-id') {
 
                         /* def customImage = docker.build("my-image:${env.BUILD_ID}") */
 
@@ -24,7 +25,6 @@ pipeline {
                     }
                     withCredentials([[$class: 'StringBinding', credentialsId: 'GCLOUD_PROJECT_ID', variable: 'GCLOUD_PROJECT_ID']]) {
                         sh 'make publish-gcloud'
-                    }
                 }
             }
         }

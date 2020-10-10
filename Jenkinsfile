@@ -13,14 +13,9 @@ pipeline {
         stage('jenkins-base') {
             steps {
                 docker.withRegistry('https://registry.example.com', 'credentials-id') {
-
-                        /* def customImage = docker.build("my-image:${env.BUILD_ID}") */
-
-                        /* Push the container to the custom Registry */
-                        /* customImage.push() */
-                dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
-                    sh 'make build'
-                }
+                    dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
+                        sh 'make build && make publish'
+                    }
                 }
             }
         }

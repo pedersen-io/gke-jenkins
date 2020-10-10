@@ -12,7 +12,7 @@ pipeline {
         }
         stage('jenkins-base') {
             steps {
-                docker.withRegistry('https://registry.example.com', 'derekpedersen_docker') {
+                withDockerRegistry([credentialsId: 'derekpedersen_docker', url: "https://hub.docker.com/"]) {
                     dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
                         sh 'make build && make publish'
                     }

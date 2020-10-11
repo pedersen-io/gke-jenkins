@@ -17,7 +17,7 @@ pipeline {
                 }
                 withDockerRegistry([credentialsId: 'derekpedersen_docker', url: "https://index.docker.io/v1/"]) {
                     dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
-                        sh 'publish-docker'
+                        sh 'make publish-docker'
                     }
                 }
                 withCredentials([[$class: 'StringBinding', credentialsId: 'GCLOUD_PROJECT_ID', variable: 'GCLOUD_PROJECT_ID']]) {

@@ -1,9 +1,10 @@
 pipeline {
     agent {
         label 'build-base-stable'
-    }
-    stages {
-        dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
+    } 
+    dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
+        stages {
+       
             stage('Checkout') {
                 steps{
                     checkout scm

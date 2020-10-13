@@ -3,30 +3,32 @@ pipeline {
         label 'build-base-stable'
     }
     stages {
-        stage('Checkout') {
-            steps{
-                dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
+        dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
+            stage('Checkout') {
+                steps{
                     checkout scm
                 }
             }
-        }
-        stage('jenkins-base') {
-            steps {
-                dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
-                        sh 'make build'
-                }
-                withDockerRegistry([credentialsId: 'derekpedersen_docker', url: "https://index.docker.io/v1/"]) {
+            stage('jenkins-base') {
+                steps {
                     dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
-                        sh 'make publish-docker'
+                            sh 'make build'
                     }
-                }
-                withCredentials([[$class: 'StringBinding', credentialsId: 'GCLOUD_PROJECT_ID', variable: 'GCLOUD_PROJECT_ID']]) {
-                    dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
-                        sh 'make publish-gcloud'
+                    withDockerRegistry([credentialsId: 'derekpedersen_docker', url: "https://index.docker.io/v1/"]) {
+                        dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
+                            sh 'make publish-docker'
+                        }
+                    }
+                    withCredentials([[$class: 'StringBinding', credentialsId: 'GCLOUD_PROJECT_ID', variable: 'GCLOUD_PROJECT_ID']]) {
+                        dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins') {
+                            sh 'make publish-gcloud'
+                        }
                     }
                 }
             }
         }
+        
+        
         stage('golang') {
             steps {
                 dir('/root/workspace/go/src/github.com/derekpedersen/gke-jenkins/golang') {

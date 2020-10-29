@@ -28,3 +28,11 @@ NOTES:
 For more information on running Jenkins on Kubernetes, visit:
 https://cloud.google.com/solutions/jenkins-on-container-engine
 ```
+
+### permissions ###
+
+I ran into some issue with the pods not being able to run `helm` commands, so I had to create the following `clusterrolebinding`
+
+```
+kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin --user=admin --user=kubelet --group=system:serviceaccounts
+```

@@ -116,7 +116,6 @@ jenkins:
         name: "golang"
         nodeUsageMode: "NORMAL"
         podRetention: "onFailure"
-        serviceAccount: "jenkins"
         slaveConnectTimeout: 600
         slaveConnectTimeoutStr: "600"
         volumes:

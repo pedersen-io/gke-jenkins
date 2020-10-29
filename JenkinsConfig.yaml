@@ -10,13 +10,13 @@ credentials:
       - usernamePassword:
           description: "derekpedersen username/password with pat"
           id: "derekpedersen_github"
-          password: "{AQAAABAAAAAwLjmIiU+7Zg+LZo+EgSmGj7LKO1IVVVHJVAxaLWVwfoUqYR0OpJJi5JNu9T5UVJFtkiPHTzk+0HTJbqJgauKFpw==}"
+          password: "{AQAAABAAAAAw62JyZZwU/L0hQnrXCikNzzQaZlvLz7pWQcAfFRjSClJcF1snBGLc6/U4oZlCYTIW0QkI+dwt9nCefWAaAQ4vpQ==}"
           scope: GLOBAL
           username: "derekpedersen"
       - usernamePassword:
           description: "derekpedersen docker username/password"
           id: "derekpedersen_docker"
-          password: "{AQAAABAAAAAQc9ZWbbBNIx/46598zsmFX9J5v4YuqYbohaCfONVeOQc=}"
+          password: "{AQAAABAAAAAQYFflAYvABNWQSiF9RWd20y6d2JSF+xuQvZPgrI6+P2g=}"
           scope: GLOBAL
           username: "derekpedersen"
       - string:
@@ -24,6 +24,17 @@ credentials:
           id: "GCLOUD_PROJECT_ID"
           scope: GLOBAL
           secret: "{AQAAABAAAAAQB9Pvr7+3Z6YxyhDwpbqYwPAU7+cqIW54mH/hCUvnkjQ=}"
+      - string:
+          description: "Odin gke service account json text"
+          id: "odin_service_account_json_text"
+          scope: GLOBAL
+          secret: "{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}"
+      - file:
+          description: "odin service account json file"
+          fileName: "sleipnir-a3be28a3cbc6.json"
+          id: "odin_service_account_json_file"
+          scope: GLOBAL
+          secretBytes: "{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}"
 jenkins:
   agentProtocols:
   - "JNLP4-connect"
@@ -73,6 +84,7 @@ jenkins:
   - kubernetes:
       containerCap: 10
       containerCapStr: "10"
+      credentialsId: "odin_service_account_json_file"
       jenkinsTunnel: "jenkins-1597965510-agent:50000"
       jenkinsUrl: "http://jenkins-1597965510:8080"
       name: "kubernetes"
@@ -82,6 +94,7 @@ jenkins:
       - containers:
         - alwaysPullImage: true
           args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
           image: "us.gcr.io/sleipnir/build-golang:latest"
           livenessProbe:
             failureThreshold: 0
@@ -115,6 +128,7 @@ jenkins:
       - containers:
         - alwaysPullImage: true
           args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
           image: "us.gcr.io/sleipnir/build-node:latest"
           livenessProbe:
             failureThreshold: 0
@@ -143,6 +157,7 @@ jenkins:
       - containers:
         - alwaysPullImage: true
           args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
           image: "us.gcr.io/sleipnir/build-jenkins-base:latest"
           livenessProbe:
             failureThreshold: 0
@@ -171,6 +186,7 @@ jenkins:
       - containers:
         - alwaysPullImage: true
           args: "^${computer.jnlpmac} ^${computer.name}"
+          command: "/bin/sh -c"
           image: "us.gcr.io/sleipnir/build-dotnetcore:latest"
           livenessProbe:
             failureThreshold: 0
@@ -224,7 +240,7 @@ jenkins:
   securityRealm:
     github:
       clientID: "725008ee2da8b3bd533e"
-      clientSecret: "{AQAAABAAAAAwa7GSqwNKhIvxtV+hfcKsqCJ/ZSaTW3gdFybGTdoGtr32pcwUpQsZdEuoMl+3jtweS1UymcY6NXxyD3N3rj5hTA==}"
+      clientSecret: "{AQAAABAAAAAw8YK7muONHt6kpQ1yJjcUq1l4MsLchVTk1iu/axVVZl5vUm7sEevsso/Y5NMflG8KMcA0zD/SYdO5Avm7Zo18+w==}"
       githubApiUri: "https://api.github.com"
       githubWebUri: "https://github.com"
       oauthScopes: "read:org,user:email,repo"
@@ -265,6 +281,12 @@ unclassified:
       manageHooks: false
       name: "github.com"
     hookUrl: "https://jenkins.pedersen.io/github-webhook/"
+  gitLabConnectionConfig:
+    connections:
+    - clientBuilderId: "autodetect"
+      connectionTimeout: 10
+      ignoreCertificateErrors: false
+      readTimeout: 10
   gitSCM:
     allowSecondFetch: false
     createAccountBasedOnEmail: false

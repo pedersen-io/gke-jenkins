@@ -8,8 +8,8 @@ Add the repo `helm repo add jenkins https://charts.jenkins.io && helm repo updat
 
 Install the chart`helm install stable/jenkins --generate-name`
 
-```bash
-derek@derek-mint:~$ helm install jenkins/jenkins --generate-name
+```yaml
+derek@derek:~$ helm install jenkins/jenkins --generate-name
 WARNING: "kubernetes-charts.storage.googleapis.com" is deprecated for "stable" and will be deleted Nov. 13, 2020.
 WARNING: You should switch to "https://charts.helm.sh/stable" via:
 WARNING: helm repo add "stable" "https://charts.helm.sh/stable" --force-update

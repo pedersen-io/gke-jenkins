@@ -10,20 +10,20 @@ credentials:
       - usernamePassword:
           description: "derekpedersen username/password with pat"
           id: "derekpedersen_github"
-          password: "{AQAAABAAAAAw4opxgx4aGIuF5K+e/MRnbnHErju0WFj4K+ZJ5mVy894EGgU34ZOT1vB1uLuNqEinSqVitzMfqfHoH75E9vUXSg==}"
+          password: "{AQAAABAAAAAwR5UOBS2l62FQFvkhnHsqNCfMez2J4Df9nJFfATwqSKwyQH4sDmmtzkNz676S2zHEdiOrSdA4T7jRXIQvRch0Ag==}"
           scope: GLOBAL
           username: "derekpedersen"
       - usernamePassword:
           description: "derekpedersen docker username/password"
           id: "derekpedersen_docker"
-          password: "{AQAAABAAAAAQ7IkW/1HPt9qZoKGKDtILtLQitnvMM4CoZYxxhW76QHM=}"
+          password: "{AQAAABAAAAAQe6FNJ5oNNgSRm3VHlNrXjK3+tetkpBEMcY5sQ2pWxBw=}"
           scope: GLOBAL
           username: "derekpedersen"
       - string:
           description: "gcloud project id"
           id: "GCLOUD_PROJECT_ID"
           scope: GLOBAL
-          secret: "{AQAAABAAAABAm1zE2ekfR2OPY+e0I2ZAYfsUyvkJNsq9VrjLJ1/58EseLFVkqlajSpUJsQs2qkz54pm7GDfANpF764xr7Z9nqH83mC08nZjM1K4quvYA7AE=}"
+          secret: "{AQAAABAAAAAQjxRmuzg8D8shn5Gy2m9/TNLVTgMBPmJ4IXS1b+yv0II=}"
       - string:
           description: "Odin gke service account json text"
           id: "odin_service_account_json_text"
@@ -90,7 +90,6 @@ jenkins:
       - key: "jenkins/jenkins-1619548353-jenkins-agent"
         value: "true"
       serverUrl: "https://kubernetes.default"
-
       templates:
       - containers:
         - alwaysPullImage: true
@@ -115,7 +114,7 @@ jenkins:
         instanceCapStr: "5"
         label: "build-golang-stable"
         name: "golang"
-        nodeUsageMode: "NORMAL"
+        nodeUsageMode: NORMAL
         podRetention: "onFailure"
         serviceAccount: "default"
         slaveConnectTimeout: 600
@@ -208,6 +207,9 @@ jenkins:
   disabledAdministrativeMonitors:
   - "jenkins.security.QueueItemAuthenticatorMonitor"
   labelAtoms:
+  - name: "build-base-stable"
+  - name: "build-golang-stable"
+  - name: "build-node-stable"
   - name: "jenkins-1619548353-jenkins-agent"
   - name: "master"
   markupFormatter: "plainText"
@@ -226,7 +228,7 @@ jenkins:
   securityRealm:
     github:
       clientID: "725008ee2da8b3bd533e"
-      clientSecret: "{AQAAABAAAAAwhHkLK2VcRC5TGHN1KLnEGetBgje5KFD9hXEe9/nmZQZKQMliAw5TLUBfVg5pzHrtpCxqFcIR81hB+7piECBlBg==}"
+      clientSecret: "{AQAAABAAAAAwbDeWS5MmEvgJdhN/trVC1Q16xZNFZulua/iFekqvHsmEkAoXBLg871J5uu8vOenRx49n7UXnMLIgdO9eh5y1bA==}"
       githubApiUri: "https://api.github.com"
       githubWebUri: "https://github.com"
       oauthScopes: "read:org,user:email,repo"
@@ -251,7 +253,7 @@ unclassified:
     configuredBuildDiscarders:
     - "jobBuildDiscarder"
   casCGlobalConfig:
-    configurationPath: "https://raw.githubusercontent.com/pedersen-io/gke-jenkins/master/jenkins.yaml"
+    configurationPath: "https://raw.githubusercontent.com/pedersen-io/gke-jenkins/master/JenkinsConfig.yaml"
   defaultFolderConfiguration:
     healthMetrics:
     - worstChildHealthMetric:

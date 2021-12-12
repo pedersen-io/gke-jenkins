@@ -90,3 +90,30 @@
             mountPath: "/var/run/docker.sock"
         yamlMergeStrategy: "override"
       - containers:
+        - alwaysPullImage: true
+          args: "^${computer.jnlpmac} ^${computer.name}"
+          image: "us.gcr.io/sleipnir/build-dotnetcore:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          ttyEnabled: true
+          workingDir: "/home/jenkins"
+        id: "6170664b-ab08-46ae-a41d-a2721b714a12"
+        idleMinutes: 15
+        idleMinutesStr: "15"
+        instanceCap: 5
+        instanceCapStr: "5"
+        label: "build-dotnetcore-stable"
+        name: "dotnetcore"
+        podRetention: "onFailure"
+        slaveConnectTimeout: 600
+        slaveConnectTimeoutStr: "600"
+        volumes:
+        - hostPathVolume:
+            hostPath: "/var/run/docker.sock"
+            mountPath: "/var/run/docker.sock"
+        yamlMergeStrategy: "override"

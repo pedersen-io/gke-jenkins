@@ -3,7 +3,7 @@ FROM build-jenkins-base
 USER root
 
 # go
-RUN wget https://dl.google.com/go/go1.15.2.linux-amd64.tar.gz && \
+RUN curl --output go1.15.2.linux-amd64.tar.gz https://dl.google.com/go/go1.15.2.linux-amd64.tar.gz && \
     tar -xvf go1.15.2.linux-amd64.tar.gz && \
     mv go /usr/local
 ENV GOROOT=/usr/local/go 

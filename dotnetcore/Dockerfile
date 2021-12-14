@@ -3,8 +3,9 @@ FROM build-jenkins-base
 USER root
 
 # dotnetcore
-RUN curl -sOL https://dot.net/v1/dotnet-install.sh
-RUN chmod +x dotnet-install.sh
-RUN ./dotnet-install.sh
+RUN curl -sOL https://download.visualstudio.microsoft.com/download/pr/bd94779d-c7c4-47fd-b80a-0088caa0afc6/40f115bbf4c068359e7a066fe0b03dbc/dotnet-sdk-6.0.101-linux-musl-x64.tar.gz && \
+    mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-6.0.101-linux-musl-x64.tar.gz -C $HOME/dotnet && \
+    export DOTNET_ROOT=$HOME/dotnet && \
+    export PATH=$PATH:$HOME/dotnet
 
 ENTRYPOINT ["jenkins-slave"] 

@@ -36,3 +36,6 @@ I ran into some issue with the pods not being able to run `helm` commands, so I 
 ```
 kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin --user=admin --user=kubelet --group=system:serviceaccounts
 ```
+### upgrade jenkins ###
+
+To upgrade the version of `jenkins` run this command `helm upgrade [RELEASE_NAME] jenkins/jenkins [flags]`
